@@ -22,7 +22,8 @@
   };
 
   const newVideoLoaded = async () => {
-    const bookmarkBtnExists = document.getElementsByClassName('boomark-btn')[0];
+    const bookmarkBtnExists =
+      document.getElementsByClassName('bookmark-btn')[0];
     currentVideoBookmarks = await fetchBookmarks();
     if (!bookmarkBtnExists) {
       const bookmarkBtn = document.createElement('img');
