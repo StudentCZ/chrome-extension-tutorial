@@ -4,7 +4,19 @@ import { getActiveTabUrl } from './utils';
 // adding a new bookmark row to the popup
 const addNewBookmark = () => {};
 
-const viewBookmarks = () => {};
+const viewBookmarks = (currentBookmarks = []) => {
+  const bookmarksElement = document.getElementsById('bookmarks');
+  bookmarksElement.innerHTML = '';
+
+  if (currentBookmarks.length > 0) {
+    for (let i = 0; i < currentBookmarks.length; i++) {
+      const bookmark = currentBookmarks[i];
+      addNewBookmark(bookmarksElement, bookmark);
+    }
+  } else {
+    bookmarksElement.innerHTML = '<i class="row"> No bookmarks to show</i>';
+  }
+};
 
 const onPlay = (e) => {};
 
@@ -24,9 +36,12 @@ document.addEventListener('DOMContentLoaded', async () => {
       const currentVideoBookmarks = data[currentVideo]
         ? JSON.parse(data[currentVideo])
         : [];
+
+      viewBookmarks(currentVideoBookmarks);
     });
   } else {
     const container = document.getElementsByClassName('container')[0];
-    container.innerHTML = `<div class='title'> This is not a youtube page.</div>`;
+    container.innerHTML =
+      '<div class="title"> This is not a youtube page.</div>';
   }
 });
