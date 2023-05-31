@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-export async function getCurrentTab() {
+export async function getActiveTabUrl() {
   let queryOptions = { active: true, currentWindow: true };
   let [tab] = await chrome.tabs.query(queryOptions);
   return tab;
