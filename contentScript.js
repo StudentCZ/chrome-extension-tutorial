@@ -23,7 +23,7 @@
 
   const newVideoLoaded = async () => {
     const bookmarkBtnExists = document.getElementsByClassName('boomark-btn')[0];
-
+    currentVideoBookmarks = await fetchBookmarks();
     if (!bookmarkBtnExists) {
       const bookmarkBtn = document.createElement('img');
 
@@ -40,12 +40,14 @@
     }
   };
 
-  const addNewBookmarkEventHandler = () => {
+  const addNewBookmarkEventHandler = async () => {
     const currentTime = youtubePlayer.currentTime;
     const newBookMark = {
       time: currentTime,
       desc: 'Bookmark at ' + getTime(currentTime),
     };
+
+    currentVideoBookmarks = await fetchBookmarks();
 
     chrome.storage.sync.set({
       [currentVideo]: JSON.stringify(
