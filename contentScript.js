@@ -12,7 +12,7 @@
     }
   });
 
-  const newVideoLoaded = () => {
+  const newVideoLoaded = async () => {
     const bookmarkBtnExists = document.getElementsByClassName('boomark-btn')[0];
 
     if (!bookmarkBtnExists) {
@@ -24,6 +24,12 @@
 
       youtubeLeftControls =
         document.getElementsByClassName('ytp-left-controls')[0];
+      youtubePlayer = document.getElementsByClassName('video-stream')[0];
+
+      youtubeLeftControls.appendChild(bookmarkBtn);
+      bookmarkBtn.addEventListener('click', addNewBookmarkEventHandler);
     }
   };
+
+  newVideoLoaded();
 })();
