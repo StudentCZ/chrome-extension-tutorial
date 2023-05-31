@@ -31,5 +31,9 @@
     }
   };
 
+  const addNewBookmarkEventHandler = () => {
+    const currentTime = youtubePlayer.currentTime;
+  };
+
   newVideoLoaded();
 })();
