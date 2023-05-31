@@ -7,6 +7,7 @@ chrome.tabs.onUpdated.addListener((tabId, id) => {
     chrome.tabs.sendMessage(tabId, {
       type: 'New',
       videoId: urlParameters.get('v'),
+      random: 'random',
     });
   }
 });

@@ -11,4 +11,8 @@
       newVideoLoaded();
     }
   });
+
+  const newVideoLoaded = () => {
+    const bookmarkBtnExists = document.getElementsByClassName('boomark-btn')[0];
+  };
 })();
